@@ -4,13 +4,13 @@ import Button from '../../ui/Button';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { use } from 'react';
-import { clearCart } from './cartSlice';
+import { clearCart, getCart } from './cartSlice';
 import EmptyCart from './EmptyCart';
 
 
 function Cart() {
   const dispatch = useDispatch()
-  const cart = useSelector((state) => state.cart.cart);
+  const cart = useSelector(getCart);
   const username = useSelector((state) => state.user.username); 
 
   if(!cart.length) {
